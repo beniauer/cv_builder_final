@@ -1,0 +1,499 @@
+%Academic:
+ 
+\documentclass[10pt]{article}
+\RequirePackage[T1]{fontenc}
+ 
+%
+%         PAPER SIZE, PAGE NUMBER, AND DOCUMENT LAYOUT NOTES:
+%
+% The next \usepackage line changes the layout for CV style section
+% headings as marginal notes. It also sets up the paper size as either
+% letter or A4. By default, letter was used. If A4 paper is desired,
+% comment out the letterpaper lines and uncomment the a4paper lines.
+%
+% As you can see, the margin widths and section title widths can be
+% easily adjusted.
+%
+% ALSO: Notice that the includefoot option can be commented OUT in order
+% to put the PAGE NUMBER *IN* the bottom margin. This will make the
+% effective text area larger.
+%
+% IF YOU WISH TO REMOVE THE ``of LASTPAGE'' next to each page number,
+% see the note about the +LP and -LP lines below. Comment out the +LP
+% and uncomment the -LP.
+%
+% IF YOU WISH TO REMOVE PAGE NUMBERS, be sure that the includefoot line
+% is uncommented and ALSO uncomment the \pagestyle{empty} a few lines
+% below.
+%
+ 
+%% Use these lines for letter-sized paper
+\usepackage[paper=letterpaper,
+            %includefoot, % Uncomment to put page number above margin
+            marginparwidth=1.2in,     % Length of section titles
+            marginparsep=.05in,       % Space between titles and text
+            margin=1in,               % 1 inch margins
+            includemp]{geometry}
+ 
+%% Use these lines for A4-sized paper
+%\usepackage[paper=a4paper,
+%            %includefoot, % Uncomment to put page number above margin
+%            marginparwidth=30.5mm,    % Length of section titles
+%            marginparsep=1.5mm,       % Space between titles and text
+%            margin=25mm,              % 25mm margins
+%            includemp]{geometry}
+ 
+%% More layout: Get rid of indenting throughout entire document
+\setlength{\parindent}{0in}
+ 
+% Provides special list environments and macros to create new ones
+\usepackage[shortlabels]{enumitem}
+ 
+% Simpler bibsections for CV sections
+% (thanks to natbib for inspiration)
+%
+% * For lists of references with hanging indents and no numbers:
+%
+%   \begin{bibsection}
+%       \item ...
+%   \end{bibsection}
+%
+% * For numbered lists of references (with hanging indents):
+%
+%   \begin{bibenum}
+%       \item ...
+%   \end{bibenum}
+%
+%   Note that bibenum numbers continuously throughout. To reset the
+%   counter, use
+%
+%   \restartlist{bibenum}
+%
+%   at the place where you want the numbering to reset.
+ 
+\makeatletter
+\newlength{\bibhang}
+\setlength{\bibhang}{1em}
+\newlength{\bibsep}
+{\@listi \global\bibsep\itemsep \global\advance\bibsep by\parsep}
+\newlist{bibsection}{itemize}{3}
+\setlist[bibsection]{label=,leftmargin=\bibhang,%
+        itemindent=-\bibhang,
+        itemsep=\bibsep,parsep=\z@,partopsep=0pt,
+        topsep=0pt}
+\newlist{bibenum}{enumerate}{3}
+\setlist[bibenum]{label=[\arabic*],resume,leftmargin={\bibhang+\widthof{[999]}},%
+        itemindent=-\bibhang,
+        itemsep=\bibsep,parsep=\z@,partopsep=0pt,
+        topsep=0pt}
+\let\oldendbibenum\endbibenum
+\def\endbibenum{\oldendbibenum\vspace{-.6\baselineskip}}
+\let\oldendbibsection\endbibsection
+\def\endbibsection{\oldendbibsection\vspace{-.6\baselineskip}}
+\makeatother
+ 
+%% Reference the last page in the page number
+%
+% NOTE: comment the +LP line and uncomment the -LP line to have page
+%       numbers without the ``of ##'' last page reference)
+%
+% NOTE: uncomment the \pagestyle{empty} line to get rid of all page
+%       numbers (make sure includefoot is commented out above)
+%
+\usepackage{fancyhdr,lastpage}
+\pagestyle{fancy}
+%\pagestyle{empty}      % Uncomment this to get rid of page numbers
+\fancyhf{}\renewcommand{\headrulewidth}{0pt}
+\fancyfootoffset{\marginparsep+\marginparwidth}
+\newlength{\footpageshift}
+\setlength{\footpageshift}
+          {0.5\textwidth+0.5\marginparsep+0.5\marginparwidth-2in}
+\lfoot{\hspace{\footpageshift}%
+       \parbox{4in}{\, \hfill %
+                    \arabic{page} of \protect\pageref*{LastPage} % +LP
+%                    \arabic{page}                               % -LP
+                    \hfill \,}}
+ 
+% Finally, give us PDF bookmarks
+\usepackage{color,hyperref}
+\definecolor{darkblue}{rgb}{0.0,0.0,0.3}
+\hypersetup{colorlinks,breaklinks,
+            linkcolor=darkblue,urlcolor=darkblue,
+            anchorcolor=darkblue,citecolor=darkblue}
+ 
+%%%%%%%%%%%%%%%%%%%%%%%% End Document Setup %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ 
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%% Helper Commands %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ 
+%%% HEADING AT TOP OF CURRICULUM VITAE
+ 
+% The title (name) with a horizontal rule under it
+% (optional argument typesets an object right-justified across from name
+%  as well)
+%
+% Usage: \makeheading{name}
+%        OR
+%        \makeheading[right_object]{name}
+%
+% Place at top of document. It should be the first thing.
+% If ``right_object'' is provided in the square-braced optional
+% argument, it will be right justified on the same line as ``name'' at
+% the top of the CV. For example:
+%
+%       \makeheading[\emph{Curriculum vitae}]{Your Name}
+%
+% will put an emphasized ``Curriculum vitae'' at the top of the document
+% as a title. Likewise, a picture could be included:
+%
+%   \makeheading[{\includegraphics[height=1.5in]{my_picture}}]{Your Name}
+%
+% the picture will be flush right across from the name. For this example
+% to work, make sure the extra set of curly braces is included. Also
+% makes ure that \usepackage{graphicx} is somewhere in the preamble.
+\newcommand{\makeheading}[2][]%
+        {\hspace*{-\marginparsep minus \marginparwidth}%
+         \begin{minipage}[t]{\textwidth+\marginparwidth+\marginparsep}%
+             {\large \bfseries #2 \hfill #1}\\[-0.15\baselineskip]%
+                 \rule{\columnwidth}{1pt}%
+         \end{minipage}}
+ 
+%%% SECTION HEADINGS
+ 
+% The section headings. Flush left in small caps down pseudo-margin.
+%
+% Usage: \section{section name}
+\renewcommand{\section}[1]{\pagebreak[3]%
+    \vspace{1.3\baselineskip}%
+    \phantomsection\addcontentsline{toc}{section}{#1}%
+    \noindent\llap{\scshape\smash{\parbox[t]{\marginparwidth}{\hyphenpenalty=10000\raggedright #1}}}%
+    \vspace{-\baselineskip}\par}
+ 
+%%% LISTS
+ 
+% This macro alters a list by removing some of the space that follows the list
+% (is used by lists below)
+\newcommand*\fixendlist[1]{%
+    \expandafter\let\csname preFixEndListend#1\expandafter\endcsname\csname end#1\endcsname
+    \expandafter\def\csname end#1\endcsname{\csname preFixEndListend#1\endcsname\vspace{-0.6\baselineskip}}}
+ 
+% These macros help ensure that items in outer-type lists do not get
+% separated from the next line by a page break
+% (they are used by lists below)
+\let\originalItem\item
+\newcommand*\fixouterlist[1]{%
+    \expandafter\let\csname preFixOuterList#1\expandafter\endcsname\csname #1\endcsname
+    \expandafter\def\csname #1\endcsname{\let\oldItem\item\def\item{\pagebreak[2]\oldItem}\csname preFixOuterList#1\endcsname}
+    \expandafter\let\csname preFixOuterListend#1\expandafter\endcsname\csname end#1\endcsname
+    \expandafter\def\csname end#1\endcsname{\let\item\oldItem\csname preFixOuterListend#1\endcsname}}
+\newcommand*\fixinnerlist[1]{%
+    \expandafter\let\csname preFixInnerList#1\expandafter\endcsname\csname #1\endcsname
+    \expandafter\def\csname #1\endcsname{\let\oldItem\item\let\item\originalItem\csname preFixInnerList#1\endcsname}
+    \expandafter\let\csname preFixInnerListend#1\expandafter\endcsname\csname end#1\endcsname
+    \expandafter\def\csname end#1\endcsname{\csname preFixInnerListend#1\endcsname\let\item\oldItem}}
+ 
+% An itemize-style list with lots of space between items
+%
+% Usage:
+%   \begin{outerlist}
+%       \item ...    % (or \item[] for no bullet)
+%   \end{outerlist}
+\newlist{outerlist}{itemize}{3}
+    \setlist[outerlist]{label=\enskip\textbullet,leftmargin=*}
+    \fixendlist{outerlist}
+    \fixouterlist{outerlist}
+ 
+% An environment IDENTICAL to outerlist that has better pre-list spacing
+% when used as the first thing in a \section
+%
+% Usage:
+%   \begin{lonelist}
+%       \item ...    % (or \item[] for no bullet)
+%   \end{lonelist}
+\newlist{lonelist}{itemize}{3}
+    \setlist[lonelist]{label=\enskip\textbullet,leftmargin=*,partopsep=0pt,topsep=0pt}
+    \fixendlist{lonelist}
+    \fixouterlist{lonelist}
+ 
+% An itemize-style list with little space between items
+%
+% Usage:
+%   \begin{innerlist}
+%       \item ...    % (or \item[] for no bullet)
+%   \end{innerlist}
+\newlist{innerlist}{itemize}{3}
+    \setlist[innerlist]{label=\enskip\textbullet,leftmargin=*,parsep=0pt,itemsep=0pt,topsep=0pt,partopsep=0pt}
+    \fixinnerlist{innerlist}
+ 
+% An environment IDENTICAL to innerlist that has better pre-list spacing
+% when used as the first thing in a \section
+%
+% Usage:
+%   \begin{loneinnerlist}
+%       \item ...    % (or \item[] for no bullet)
+%   \end{loneinnerlist}
+\newlist{loneinnerlist}{itemize}{3}
+    \setlist[loneinnerlist]{label=\enskip\textbullet,leftmargin=*,parsep=0pt,itemsep=0pt,topsep=0pt,partopsep=0pt}
+    \fixendlist{loneinnerlist}
+    \fixinnerlist{loneinnerlist}
+ 
+%%% EXTRA SPACE
+ 
+% To add some paragraph space between lines.
+% This also tells LaTeX to preferably break a page on one of these gaps
+% if there is a needed pagebreak nearby.
+\newcommand{\blankline}{\quad\pagebreak[3]}
+\newcommand{\halfblankline}{\quad\vspace{-0.5\baselineskip}\pagebreak[3]}
+ 
+%%% FORMATTING MACROS
+ 
+% Provides a linked \doi{#1} that links doi:#1 to http://dx.doi.org/#1
+\usepackage{doi}
+% To change the text before the DOI, adjust this command
+%\renewcommand\doitext{doi:}
+ 
+% Provides a linked \url{#1} that doesn't require escape characters
+\usepackage{url}
+ 
+% You can adjust the style \url{} uses here:
+% (options are: same, rm, sf, tt; defaults to tt)
+\urlstyle{same}
+ 
+% For \email{ADDRESS}, links ADDRESS to the url mailto:ADDRESS
+% (uncomment to typeset the e\-/mail address in typewriter font;
+%  otherwise, will be typeset in the \urlstyle above)
+%\DeclareUrlCommand\emaillink{\urlstyle{tt}}
+\providecommand*\emaillink[1]{\nolinkurl{#1}}
+\providecommand*\email[1]{\href{mailto:#1}{\emaillink{#1}}}
+ 
+\providecommand\BibTeX{{B\kern-.05em{\sc i\kern-.025em b}\kern-.08em \TeX}}
+\providecommand\Matlab{\textsc{Matlab}}
+ 
+% Custom hyphenation rules for words that LaTeX has trouble with
+\hyphenation{bio-mim-ic-ry bio-in-spi-ra-tion re-us-a-ble pro-vid-er Media-Wiki}
+ 
+%%%%%%%%%%%%%%%%%%%%%%%% End Helper Commands %%%%%%%%%%%%%%%%%%%%%%%%%%%
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%% Begin CV Document %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ 
+\begin{document}
+\makeheading{Dr.~Theodore~(Ted) P.~Pavlic}
+ 
+\section{Contact Information}
+ 
+% NOTE: Mind where the & separators and \\ breaks are in the following
+%       table. Table is one row made up of three parboxes. The left
+%       parbox has address info, the middle parbox has a vertical bar,
+%       and the right parbox has phone and electronic contact
+%       information.
+%
+% MACROS: \rcollength is the width of the right column of the table
+%             (adjust it to your liking; default is 1.85in).
+%         \spacewidth is width of area between left and right boxes.
+%
+\newlength{\rcollength}\setlength{\rcollength}{1.85in}%
+\newlength{\spacewidth}\setlength{\spacewidth}{20pt}
+%
+\begin{tabular}[t]{@{}p{\textwidth-\rcollength-\spacewidth}@{}p{\spacewidth}@{}p{\rcollength}}%
+ 
+% Address box
+\parbox{\textwidth-\rcollength-\spacewidth}{%
+%Assistant Professor\\
+\href{http://www.asu.edu/}{Arizona State University}\\
+\href{http://cidse.engineering.asu.edu/}{School of Computing and Augmented Intelligence}\\
+PO Box 878809, Room 553\\
+Tempe, AZ  85287-8809  USA}
+ 
+&
+% Uncomment to add a vertical bar in middle of contact information
+%{\vrule width 0.5pt}
+\parbox[m][5\baselineskip]{\spacewidth}{} &
+ 
+% Non-snail-mail contact information
+\parbox{\rcollength}{%
+\textit{Work:} +1-480-965-2899 \\
+\textit{Fax:} +1-480-965-2751 \\
+\textit{E-mail:} \email{tpavlic@asu.edu}\\
+\textit{WWW:} \href{http://www.tedpavlic.com/}{www.tedpavlic.com}}
+ 
+\end{tabular}
+ 
+%%
+%% In modern CV's, it seems like ``Objective'' is frowned upon. Instead,
+%% incorporate it into a well-constructed cover letter. The ``More
+%% information'' can go at the end of the CV, but it should not distract
+%% from the section giving references available to contact.
+%%
+%
+% \section{Objective}
+%
+% Placement in an academic position (i.e., faculty, postdoctoral, or
+% research scientist) that allows for advanced research in distributed
+% complex adaptive systems (i.e., modeling, analysis, design, and
+% verification) with a particular focus on the control of engineered
+% agents (e.g., for communications, control, software, electronics, and
+% sustainability) and the analysis of biological phenomena (e.g.,
+% self-organization, ecological rationality)
+% \begin{innerlist}
+% \item More information and auxiliary documents can be found at\\\url{http://www.tedpavlic.com/facjobsearch/}
+% \end{innerlist}
+ 
+\section{Research Interests}
+ 
+\textbf{Complex adaptive systems in control systems engineering and
+behavioral science:} distributed algorithms, computational agent-based
+modeling, hybrid dynamic systems, decentralized decision making,
+emergence and self organization, amorphous computing, autonomous
+systems, control, communications, verification, cooperation,
+optimization, game theory, resource allocation, parallel computation,
+robotics, energy systems, sustainability in the built environment,
+behavioral ecology, engineering education, bio-mimicry and
+bio-inspiration
+ 
+\section{Current Academic Appointments}
+ 
+\textbf{Assistant Professor},
+            \href{http://www.asu.edu/}{Arizona State University}
+            \hfill {August 2015 to present}
+\begin{innerlist}
+ 
+    \item[] \href{http://cidse.engineering.asu.edu/}{School of
+        Computing and Augmented Intelligence}~(50\%)
+    \item[] \href{http://sustainability.asu.edu/}{School of
+        Sustainability}~(25\%)
+    \item[] \href{http://sustainability.asu.edu/}{School of Complex
+        Adaptive Systems}~(25\%)
+    \begin{innerlist}
+        \item Affiliations:
+            \begin{innerlist}
+                \item \href{http://sols.asu.edu}{School of Life Sciences} (Adjunct Professor)
+                \item \href{http://biomimicry.asu.edu/}{The Biomimicry Center} (Associate Director of Research)
+                \item \href{https://complexity.asu.edu/asu-sfi-center-biosocial-complex-systems}{ASU--Santa Fe Institute Center for Biosocial Complex Systems} (ASU--SFI Fellow)
+                \item \href{http://barretthonors.asu.edu/}{Barrett, the Honors College} (Honors Faculty)
+                \item \href{http://beyond.asu.edu/}{BEYOND Center for Fundamental Concepts in Science}
+                \item \href{http://csdc.asu.edu/}{Center for Social Dynamics and Complexity}
+                \item \href{http://sustainability.asu.edu/biodiversityoutcomes/}{Center for Biodiversity Outcomes}
+                \item \href{http://globalsecurity.asu.edu/}{Global Security Initiative}
+                \item \href{https://biodesign.asu.edu/biocomputing-security-and-society}{Center for Biocomputation, Security, and Society}
+            \end{innerlist}
+    \end{innerlist}
+ 
+\end{innerlist}
+ 
+\halfblankline
+ 
+\textbf{External Faculty},
+        \href{http://humancomputation.org/}{Human Computation Institute}
+        \hfill {June 2015 to present}
+ 
+\section{Previous Academic Appointments}
+ 
+\textbf{Associate Research Scientist},
+            \href{http://www.asu.edu/}{Arizona State University}
+            \hfill {August 2014 to July 2015}
+\begin{innerlist}
+ 
+    \item[] \href{http://sols.asu.edu/}{School of Life Sciences}
+    \begin{innerlist}
+        \item Affiliations:
+            \begin{innerlist}
+                \item \href{http://cidse.engineering.asu.edu/}{School of Computing, Informatics, and Decision Systems Engineering}
+                \item \href{http://beyond.asu.edu/}{BEYOND Center for Fundamental Concepts in Science}
+                \item \href{http://csdc.asu.edu/}{Center for Social Dynamics and Complexity}
+            \end{innerlist}
+        \item Laboratories:
+            \begin{innerlist}
+                \item \href{http://www.public.asu.edu/~spratt1}{Stephen C.~Pratt's Collective Behavior Laboratory}
+                \item \href{http://faculty.engineering.asu.edu/acs/}{Autonomous Collective Systems Laboratory} (PI: Spring Berman)
+                \item \href{http://emergence.asu.edu/}{Emergence@ASU} (PI: Paul C. W. Davies, co-PI: Sara I. Walker)
+            \end{innerlist}
+    \end{innerlist}
+ 
+\end{innerlist}
+ 
+\halfblankline
+ 
+\textbf{Postdoctoral Scholar},
+            \href{http://www.asu.edu/}{Arizona State University}
+            \hfill {July 2012 to August 2014}
+\begin{innerlist}
+ 
+    \item[] \href{http://sols.asu.edu/}{School of Life Sciences}
+    \begin{innerlist}
+        \item Supervisor: \href{http://www.public.asu.edu/~spratt1}{Professor Stephen C.~Pratt}
+        \item Decentralized decision making and behavioral bio-mimicry
+            of social insects
+    \end{innerlist}
+ 
+\end{innerlist}
+ 
+\halfblankline
+ 
+\textbf{Postdoctoral Researcher},
+            \href{http://www.osu.edu/}{The Ohio State University}
+            \hfill {September 2010 to June 2012}
+\begin{innerlist}
+ 
+    \item[] \href{http://www.cse.ohio-state.edu/}{Department of Computer Science and Engineering}
+    \begin{innerlist}
+        \item \href{http://www.nfs.gov/}{NSF} ECCS-\href{http://www.nsf.gov/awardsearch/showAward?AWD_ID=0931669}{0931669}:
+                ``Autonomous Driving in Mixed-Traffic Urban Environments''
+        \begin{innerlist}
+            \item[$-$] Supervisor (co-PI):
+                \href{http://www.cse.ohio-state.edu/~paolo/}%
+                     {Professor Paolo A.~G.~Sivilotti}
+            \item[$-$] PI:
+                \href{http://www.ece.ohio-state.edu/~umit/}%
+                     {Professor \"{U}mit \"{O}zg\"{u}ner}
+        \end{innerlist}
+    \end{innerlist}
+ 
+\end{innerlist}
+ 
+\section{Education}
+ 
+\href{http://www.osu.edu/}{\textbf{The Ohio State University}},
+Columbus, OH
+\begin{outerlist}
+ 
+\item[] Ph.D.,
+        \href{http://www.ece.osu.edu/}
+             {Electrical and Computer Engineering},
+             August 2010
+        \begin{innerlist}
+        \item Thesis Topic: \emph{Design and Analysis of Optimal
+            Task-Processing Agents}
+        %\item Thesis Proposal: \emph{Cooperative Task Processing}
+        \item Candidacy: \emph{Research
+            Problems in Distributed Control for Energy Systems}
+        \item Adviser:
+              \href{http://www.ece.osu.edu/~passino/}
+                   {Professor Kevin M.~Passino}
+        \item Area of Study: Control Engineering
+        \end{innerlist}
+ 
+\item[] M.S.,
+        \href{http://www.ece.osu.edu/}
+             {Electrical and Computer Engineering}, August 2007
+        \begin{innerlist}
+        \item Thesis Topic: \emph{Optimal Foraging Theory Revisited}
+        \item Adviser:
+              \href{http://www.ece.osu.edu/~passino/}
+                   {Professor Kevin M.~Passino}
+        \item Area of Study: Control Engineering
+        \end{innerlist}
+ 
+\item[] B.S.,
+        \href{http://www.ece.osu.edu/}
+             {Electrical and Computer Engineering}, June 2004
+        \begin{innerlist}
+        \item \emph{Magna cum Laude}, With Honors in Engineering
+        \item Electrical specialization (emphasis on electromagnetics and digital computers)
+        \item Minor in \href{http://www.cse.ohio-state.edu/}
+                            {Computer and Information Systems}
+              (programming and algorithms)
+        \end{innerlist}
+ 
+\end{outerlist}
+ 
+\end{document}
