@@ -57,9 +57,8 @@ with tabs[0]:
         linkedin_data = retrieve_info(linkedin_profile_url) or {}
 
     # Personal Information Section
-    st.header("Personal Informationen")
-
-    with st.expander("Personal Informationen", expanded=False):  # 'expanded=True' means the section will be expanded by default
+    st.header('Your CV, Your Story: Complete the Chapters')
+    with st.expander("Personal Information", expanded=False):  # 'expanded=True' means the section will be expanded by default
         # Retrieve individual address components, defaulting to an empty string if not found
         city = linkedin_data.get('city', '')
         state = linkedin_data.get('state', '')
@@ -77,8 +76,6 @@ with tabs[0]:
 
 
     # Education Section
-    st.header("Education")
-
     # Assuming the first two education entries in LinkedIn data (if they exist) are to be used
     education_entries = linkedin_data.get('education', [{} for _ in range(2)])
 
@@ -126,8 +123,6 @@ with tabs[0]:
         clubs2 = st.text_input("Clubs/Activities 2", key="unique_key_18")
 
     # Professional Experience Section
-    st.header("Professional Experience")
-
     def format_date(date_dict):
         """Formats a date dictionary into DD.MM.YYYY format."""
         if date_dict:
@@ -188,8 +183,6 @@ with tabs[0]:
         task33 = st.text_area("Tasks 3", key='task33_27', height=100)
 
     # Extracurricular Activities / Engagement Section
-    st.header("Extracurricular Activities")
-
     with st.expander("Extracurricular Activities", expanded=False):  # 'expanded=True' means the section will be expanded by default
         # Retrieve the volunteer work, certifications, languages, and interests from LinkedIn data if they exist
         volunteer_work_entries = linkedin_data.get('volunteer_work', [])  # Assuming it's a list of dictionaries
@@ -210,8 +203,6 @@ with tabs[0]:
         certificates1 = st.text_input("Certificates and Awards", value=certifications_combined, key="certificates_1_key")
 
     # Skills & Interest Section
-    st.header("Skills & Interest")
-
     # Wrap the Skills & Interest section in an expander
     with st.expander("Skills & Interest", expanded=False):  # 'expanded=True' means the section will be expanded by default
         # Retrieve the computer skills entries from LinkedIn data if they exist
@@ -338,10 +329,10 @@ with tabs[1]:
         linkedin_data = retrieve_info(linkedin_profile_url) or {}
 
     # Personal Information Section
-    st.header("Personal Informationen")
+    st.header("Your CV, Your Story: Complete the Chapters")
 
     # Retrieve individual address components, defaulting to an empty string if not found
-    with st.expander("Personal Informationen", expanded=False):  # 'expanded=True' means the section will be expanded by default
+    with st.expander("Personal Information", expanded=False):  # 'expanded=True' means the section will be expanded by default
         city = linkedin_data.get('city', '')
         state = linkedin_data.get('state', '')
         country = linkedin_data.get('country', '')
@@ -358,8 +349,6 @@ with tabs[1]:
 
 
     # Education Section
-    st.header("Education")
-
     # Assuming the first two education entries in LinkedIn data (if they exist) are to be used
     education_entries = linkedin_data.get('education', [{} for _ in range(2)])
 
@@ -392,7 +381,7 @@ with tabs[1]:
     with st.expander("Education", expanded=False):  # 'expanded=True' means the section will be expanded by default
         university1 = st.text_input("University/School 1", value=university1, key="unique_key_144")
         locationus1 = st.text_input("Location 1", value=locationus1, key="unique_key_145")
-        majorus1 = st.text_input("Study Programm 1", value=majorus1, key="unique_key_146")
+        majorus1 = st.text_input("Study Program 1", value=majorus1, key="unique_key_146")
         timeus1 = st.text_input("Time Frame 1", value=timeus1, key="unique_key_147")
         courses1 = st.text_input("Courses 1", key="unique_key_148")
         gpa1 = st.text_input("GPA 1", value=gpa1, key="unique_key_149")
@@ -400,15 +389,13 @@ with tabs[1]:
 
         university2 = st.text_input("University/School 2", value=university2, key="unique_key_151")
         locationus2 = st.text_input("Location 2", value=locationus2, key="unique_key_152")
-        majorus2 = st.text_input("Study Programm 2", value=majorus2, key="unique_key_153")
+        majorus2 = st.text_input("Study Program 2", value=majorus2, key="unique_key_153")
         timeus2 = st.text_input("Time Frame 2", value=timeus2, key="unique_key_154")
         courses2 = st.text_input("Courses 2", key="unique_key_155")
         gpa2 = st.text_input("GPA 2", value=gpa2, key="unique_key_156")
         clubs2 = st.text_input("Clubs/Activities 2", key="unique_key_157")
 
     # Professional Experience Section
-    st.header("Professional Experience")
-
     def format_date(date_dict):
         """Formats a date dictionary into DD.MM.YYYY format."""
         if date_dict:
@@ -469,8 +456,6 @@ with tabs[1]:
         task33 = st.text_area("Tasks 3", key='task33_36', height=100)
 
     # Extracurricular Activities / Engagement Section
-    st.header("Extracurricular Activities")
-
     with st.expander("Extracurricular Activities", expanded=False):  # 'expanded=True' means the section will be expanded by default
         # Retrieve the volunteer work, certifications, languages, and interests from LinkedIn data if they exist
         volunteer_work_entries = linkedin_data.get('volunteer_work', [])  # Assuming it's a list of dictionaries
@@ -491,8 +476,6 @@ with tabs[1]:
         certificates1 = st.text_input("Certificates and Awards", value=certifications_combined, key="certificates_2_key")
 
     # Skills & Interest Section
-    st.header("Skills & Interest")
-
     # Wrap the Skills & Interest section in an expander
     with st.expander("Skills & Interest", expanded=False):  # 'expanded=True' means the section will be expanded by default
         # Retrieve the computer skills entries from LinkedIn data if they exist
@@ -619,10 +602,10 @@ with tabs[2]:
         linkedin_data = retrieve_info(linkedin_profile_url) or {}
 
     # Personal Information Section
-    st.header("Persönliche Informationen")
+    st.header("Your CV, Your Story: Complete the Chapters")
 
     # Retrieve individual address components, defaulting to an empty string if not found
-    with st.expander("Persönliche Informationen", expanded=False):  # 'expanded=True' means the section will be expanded by default
+    with st.expander("Personal Information", expanded=False):  # 'expanded=True' means the section will be expanded by default
         city = linkedin_data.get('city', '')
         state = linkedin_data.get('state', '')
         country = linkedin_data.get('country', '')
@@ -633,14 +616,12 @@ with tabs[2]:
 
         # Streamlit text input fields
         name = st.text_input("Name", value=linkedin_data.get('full_name', ''), key='name_key_3')
-        address = st.text_input("Adresse", value=formatted_address, key='address_key_3')
-        phone = st.text_input("Telefonnummer", key='phone_key_3')
+        address = st.text_input("Address", value=formatted_address, key='address_key_3')
+        phone = st.text_input("Phone Number", key='phone_key_3')
         email = st.text_input("E-Mail", key='email_key_3')
 
 
     # Education Section
-    st.header("Education")
-
     # Assuming the first two education entries in LinkedIn data (if they exist) are to be used
     education_entries = linkedin_data.get('education', [{} for _ in range(2)])
 
@@ -671,25 +652,23 @@ with tabs[2]:
     timeus2 = f"{starts_at2} - {ends_at2}" if ends_at2 else starts_at2
 
     with st.expander("Education", expanded=False):  # 'expanded=True' means the section will be expanded by default
-        university1 = st.text_input("Universität/Schule 1", value=university1, key="unique_key_171")
-        locationus1 = st.text_input("Standort 1", value=locationus1, key="unique_key_172")
-        majorus1 = st.text_input("Studiengang 1", value=majorus1, key="unique_key_173")
-        timeus1 = st.text_input("Zeitraum 1", value=timeus1, key="unique_key_224")
-        courses1 = st.text_input("Kurse 1", key="unique_key_174")
+        university1 = st.text_input("University/School 1", value=university1, key="unique_key_171")
+        locationus1 = st.text_input("Location 1", value=locationus1, key="unique_key_172")
+        majorus1 = st.text_input("Study Program 1", value=majorus1, key="unique_key_173")
+        timeus1 = st.text_input("Time Frame 1", value=timeus1, key="unique_key_224")
+        courses1 = st.text_input("Courses 1", key="unique_key_174")
         gpa1 = st.text_input("GPA 1", value=gpa1, key="unique_key_175")
-        clubs1 = st.text_input("Clubs/Aktivitäten 1", key="unique_key_176")
+        clubs1 = st.text_input("Clubs/Activities 1", key="unique_key_176")
 
-        university2 = st.text_input("Universität/Schule 2", value=university2, key="unique_key_177")
-        locationus2 = st.text_input("Standort 2", value=locationus2, key="unique_key_178")
-        majorus2 = st.text_input("Studiengang 2", value=majorus2, key="unique_key_179")
-        timeus2 = st.text_input("Zeitraum 2", value=timeus2, key="unique_key_180")
-        courses2 = st.text_input("Kurse 2", key="unique_key_181")
+        university2 = st.text_input("University/School 2", value=university2, key="unique_key_177")
+        locationus2 = st.text_input("Location 2", value=locationus2, key="unique_key_178")
+        majorus2 = st.text_input("Study Program 2", value=majorus2, key="unique_key_179")
+        timeus2 = st.text_input("Time Frame 2", value=timeus2, key="unique_key_180")
+        courses2 = st.text_input("Courses 2", key="unique_key_181")
         gpa2 = st.text_input("GPA 2", value=gpa2, key="unique_key_182")
-        clubs2 = st.text_input("Clubs/Aktivitäten 2", key="unique_key_183")
+        clubs2 = st.text_input("Clubs/Activities 2", key="unique_key_183")
 
     # Professional Experience Section
-    st.header("Professional Experience")
-
     def format_date(date_dict):
         """Formats a date dictionary into DD.MM.YYYY format."""
         if date_dict:
@@ -725,33 +704,31 @@ with tabs[2]:
     timee3 = f"{starts_at3} - {ends_at3}" if ends_at3 else starts_at3
 
     with st.expander("Professional Experience", expanded=False):  # 'expanded=True' means the section will be expanded by default
-        experience1 = st.text_input("Erfahrung 1", value=experience1, key="unique_key_184")
-        locatione1 = st.text_input("Standort Erfahrung 1", value=locatione1, key="unique_key_185")
+        experience1 = st.text_input("Company 1", value=experience1, key="unique_key_184")
+        locatione1 = st.text_input("Location 1", value=locatione1, key="unique_key_185")
         position1 = st.text_input("Position 1", value=position1, key="unique_key_186")
-        timee1 = st.text_input("Zeitraum Erfahrung 1", value=timee1, key="unique_key_187")
-        task11 = st.text_area("Aufgaben 1", key='task11_37', height=100)
-        task12 = st.text_area("Aufgaben 2", key='task12_38', height=100)
-        task13 = st.text_area("Aufgaben 3", key='task13_39', height=100)
+        timee1 = st.text_input("Time Frame 1", value=timee1, key="unique_key_187")
+        task11 = st.text_area("Taks 1", key='task11_37', height=100)
+        task12 = st.text_area("Taks 2", key='task12_38', height=100)
+        task13 = st.text_area("Taks 3", key='task13_39', height=100)
 
-        experience2 = st.text_input("Erfahrung 2", value=experience2, key="unique_key_188")
-        locatione2 = st.text_input("Standort Erfahrung 2", value=locatione2, key="unique_key_189")
+        experience2 = st.text_input("Company 2", value=experience2, key="unique_key_188")
+        locatione2 = st.text_input("Location 2", value=locatione2, key="unique_key_189")
         position2 = st.text_input("Position 2", value=position2, key="unique_key_190")
-        timee2 = st.text_input("Zeitraum Erfahrung 2", value=timee2, key="unique_key_191")
-        task21 = st.text_area("Aufgaben 1", key='task21_40', height=100)
-        task22 = st.text_area("Aufgaben 2", key='task22_41', height=100)
-        task23 = st.text_area("Aufgaben 3", key='task23_42', height=100)
+        timee2 = st.text_input("Time Frame 2", value=timee2, key="unique_key_191")
+        task21 = st.text_area("Taks 1", key='task21_40', height=100)
+        task22 = st.text_area("Taks 2", key='task22_41', height=100)
+        task23 = st.text_area("Taks 3", key='task23_42', height=100)
 
-        experience3 = st.text_input("Erfahrung 3", value=experience3, key="unique_key_192")
-        locatione3 = st.text_input("Standort Erfahrung 3", value=locatione3, key="unique_key_193")
+        experience3 = st.text_input("Company 3", value=experience3, key="unique_key_192")
+        locatione3 = st.text_input("Location 3", value=locatione3, key="unique_key_193")
         position3 = st.text_input("Position 3", value=position3, key="unique_key_194")
-        timee3 = st.text_input("Zeitraum Erfahrung 3", value=timee3, key="unique_key_195")
-        task31 = st.text_area("Aufgaben 1", key='task31_43', height=100)
-        task32 = st.text_area("Aufgaben 2", key='task32_44', height=100)
-        task33 = st.text_area("Aufgaben 3", key='task33_45', height=100)
+        timee3 = st.text_input("Time Frame 3", value=timee3, key="unique_key_195")
+        task31 = st.text_area("Taks 1", key='task31_43', height=100)
+        task32 = st.text_area("Taks 2", key='task32_44', height=100)
+        task33 = st.text_area("Taks 3", key='task33_45', height=100)
 
     # Extracurricular Activities / Engagement Section
-    st.header("Extracurricular Activities")
-
     with st.expander("Extracurricular Activities", expanded=False):  # 'expanded=True' means the section will be expanded by default
         # Retrieve the volunteer work, certifications, languages, and interests from LinkedIn data if they exist
         volunteer_work_entries = linkedin_data.get('volunteer_work', [])  # Assuming it's a list of dictionaries
@@ -767,13 +744,11 @@ with tabs[2]:
         volunteer_work_combined = ', '.join(volunteer_work_titles[0:3])
         certifications_combined = ', '.join(certifications_titles[0:3])
 
-        extracurricular1 = st.text_input("Extrakurrikulare Aktivitäten", value=volunteer_work_combined, key="extracurricular_3_key")
-        additionaleducation1 = st.text_input("Zusätzliche Bildung", key="additional_education_3_key")  # No specific API data, so left for manual input
-        certificates1 = st.text_input("Zertifikate und Errungenschaften", value=certifications_combined, key="certificates_3_key")
+        extracurricular1 = st.text_input("Extracurricular Activities", value=volunteer_work_combined, key="extracurricular_3_key")
+        additionaleducation1 = st.text_input("Additional Education", key="additional_education_3_key")  # No specific API data, so left for manual input
+        certificates1 = st.text_input("Certificates and Awards", value=certifications_combined, key="certificates_3_key")
 
     # Skills & Interest Section
-    st.header("Skills & Interest")
-
     # Wrap the Skills & Interest section in an expander
     with st.expander("Skills & Interest", expanded=False):  # 'expanded=True' means the section will be expanded by default
         # Retrieve the computer skills entries from LinkedIn data if they exist
@@ -784,12 +759,12 @@ with tabs[2]:
         interests_combined = ', '.join(interests_entries[0:3])
         computer_skills_combined = ', '.join(computer_skills_entries[0:3])
 
-        languages1 = st.text_input("Sprachen", value=languages_combined, key="languages_3_key")
-        computer1 = st.text_input("Computerkenntnisse", value=computer_skills_combined, key="computer_skills_key_3")
-        interests1 = st.text_input("Interessen", value=interests_combined, key="interests_3_key")
+        languages1 = st.text_input("Languages", value=languages_combined, key="languages_3_key")
+        computer1 = st.text_input("Computer Skills", value=computer_skills_combined, key="computer_skills_key_3")
+        interests1 = st.text_input("Interests", value=interests_combined, key="interests_3_key")
 
     # Button zum Erstellen des CVs
-    if st.button("CV Erstellen", key="unique_key_196"):
+    if st.button("Generate CV", key="unique_key_196"):
         try:
             with open('template_finance.tex', 'r', encoding='utf-8') as file:
                 latex_template = file.read()
@@ -900,10 +875,10 @@ with tabs[3]:
         linkedin_data = retrieve_info(linkedin_profile_url) or {}
 
     # Personal Information Section
-    st.header("Persönliche Informationen")
+    st.header("Your CV, Your Story: Complete the Chapters")
 
     # Retrieve individual address components, defaulting to an empty string if not found
-    with st.expander("Persönliche Informationen", expanded=False):  # 'expanded=True' means the section will be expanded by default
+    with st.expander("Personal Information", expanded=False):  # 'expanded=True' means the section will be expanded by default
         city = linkedin_data.get('city', '')
         state = linkedin_data.get('state', '')
         country = linkedin_data.get('country', '')
@@ -914,13 +889,11 @@ with tabs[3]:
 
         # Streamlit text input fields
         name = st.text_input("Name", value=linkedin_data.get('full_name', ''), key='name_key_4')
-        address = st.text_input("Adresse", value=formatted_address, key='address_key_4')
-        phone = st.text_input("Telefonnummer", key='phone_key_4')
+        address = st.text_input("Address", value=formatted_address, key='address_key_4')
+        phone = st.text_input("Phone Number", key='phone_key_4')
         email = st.text_input("E-Mail", key='email_key_4')
 
     # Education Section
-    st.header("Education")
-
     # Assuming the first two education entries in LinkedIn data (if they exist) are to be used
     education_entries = linkedin_data.get('education', [{} for _ in range(2)])
 
@@ -951,25 +924,23 @@ with tabs[3]:
     timeus2 = f"{starts_at2} - {ends_at2}" if ends_at2 else starts_at2
 
     with st.expander("Education", expanded=False):  # 'expanded=True' means the section will be expanded by default
-        university1 = st.text_input("Universität/Schule 1", value=university1, key="unique_key_197")
-        locationus1 = st.text_input("Standort 1", value=locationus1, key="unique_key_198")
-        majorus1 = st.text_input("Studiengang 1", value=majorus1, key="unique_key_199")
-        timeus1 = st.text_input("Zeitraum 1", value=timeus1, key="unique_key_200")
-        courses1 = st.text_input("Kurse 1", key="unique_key_201")
+        university1 = st.text_input("University/School 1", value=university1, key="unique_key_197")
+        locationus1 = st.text_input("Location 1", value=locationus1, key="unique_key_198")
+        majorus1 = st.text_input("Study Program 1", value=majorus1, key="unique_key_199")
+        timeus1 = st.text_input("Time Frame 1", value=timeus1, key="unique_key_200")
+        courses1 = st.text_input("Courses 1", key="unique_key_201")
         gpa1 = st.text_input("GPA 1", value=gpa1, key="unique_key_202")
-        clubs1 = st.text_input("Clubs/Aktivitäten 1", key="unique_key_203")
+        clubs1 = st.text_input("Clubs/Activities 1", key="unique_key_203")
 
-        university2 = st.text_input("Universität/Schule 2", value=university2, key="unique_key_204")
-        locationus2 = st.text_input("Standort 2", value=locationus2, key="unique_key_205")
-        majorus2 = st.text_input("Studiengang 2", value=majorus2, key="unique_key_206")
-        timeus2 = st.text_input("Zeitraum 2", value=timeus2, key="unique_key_207")
-        courses2 = st.text_input("Kurse 2", key="unique_key_208")
+        university2 = st.text_input("University/School 2", value=university2, key="unique_key_204")
+        locationus2 = st.text_input("Location 2", value=locationus2, key="unique_key_205")
+        majorus2 = st.text_input("Study Program 2", value=majorus2, key="unique_key_206")
+        timeus2 = st.text_input("Time Frame 2", value=timeus2, key="unique_key_207")
+        courses2 = st.text_input("Courses 2", key="unique_key_208")
         gpa2 = st.text_input("GPA 2", value=gpa2, key="unique_key_209")
-        clubs2 = st.text_input("Clubs/Aktivitäten 2", key="unique_key_210")
+        clubs2 = st.text_input("Clubs/Activities 2", key="unique_key_210")
 
     # Professional Experience Section
-    st.header("Professional Experience")
-
     def format_date(date_dict):
         """Formats a date dictionary into DD.MM.YYYY format."""
         if date_dict:
@@ -1005,33 +976,31 @@ with tabs[3]:
     timee3 = f"{starts_at3} - {ends_at3}" if ends_at3 else starts_at3
 
     with st.expander("Professional Experience", expanded=False):  # 'expanded=True' means the section will be expanded by default
-        experience1 = st.text_input("Erfahrung 1", value=experience1, key="unique_key_211")
-        locatione1 = st.text_input("Standort Erfahrung 1", value=locatione1, key="unique_key_212")
+        experience1 = st.text_input("Company 1", value=experience1, key="unique_key_211")
+        locatione1 = st.text_input("Location 1", value=locatione1, key="unique_key_212")
         position1 = st.text_input("Position 1", value=position1, key="unique_key_213")
-        timee1 = st.text_input("Zeitraum Erfahrung 1", value=timee1, key="unique_key_214")
-        task11 = st.text_area("Aufgaben 1", key='task11_46', height=100)
-        task12 = st.text_area("Aufgaben 2", key='task12_47', height=100)
-        task13 = st.text_area("Aufgaben 3", key='task13_48', height=100)
+        timee1 = st.text_input("Time Frame 1", value=timee1, key="unique_key_214")
+        task11 = st.text_area("Tasks 1", key='task11_46', height=100)
+        task12 = st.text_area("Tasks 2", key='task12_47', height=100)
+        task13 = st.text_area("Tasks 3", key='task13_48', height=100)
 
-        experience2 = st.text_input("Erfahrung 2", value=experience2, key="unique_key_215")
-        locatione2 = st.text_input("Standort Erfahrung 2", value=locatione2, key="unique_key_216")
+        experience2 = st.text_input("Company 2", value=experience2, key="unique_key_215")
+        locatione2 = st.text_input("Location 2", value=locatione2, key="unique_key_216")
         position2 = st.text_input("Position 2", value=position2, key="unique_key_217")
-        timee2 = st.text_input("Zeitraum Erfahrung 2", value=timee2, key="unique_key_218")
-        task21 = st.text_area("Aufgaben 1", key='task21_49', height=100)
-        task22 = st.text_area("Aufgaben 2", key='task22_50', height=100)
-        task23 = st.text_area("Aufgaben 3", key='task23_51', height=100)
+        timee2 = st.text_input("Time Frame 2", value=timee2, key="unique_key_218")
+        task21 = st.text_area("Tasks 1", key='task21_49', height=100)
+        task22 = st.text_area("Tasks 2", key='task22_50', height=100)
+        task23 = st.text_area("Tasks 3", key='task23_51', height=100)
 
-        experience3 = st.text_input("Erfahrung 3", value=experience3, key="unique_key_219")
-        locatione3 = st.text_input("Standort Erfahrung 3", value=locatione3, key="unique_key_220")
+        experience3 = st.text_input("Company 3", value=experience3, key="unique_key_219")
+        locatione3 = st.text_input("Location 3", value=locatione3, key="unique_key_220")
         position3 = st.text_input("Position 3", value=position3, key="unique_key_221")
-        timee3 = st.text_input("Zeitraum Erfahrung 3", value=timee3, key="unique_key_222")
-        task31 = st.text_area("Aufgaben 1", key='task31_52', height=100)
-        task32 = st.text_area("Aufgaben 2", key='task32_53', height=100)
-        task33 = st.text_area("Aufgaben 3", key='task33_54', height=100)
+        timee3 = st.text_input("Time Frame 3", value=timee3, key="unique_key_222")
+        task31 = st.text_area("Tasks 1", key='task31_52', height=100)
+        task32 = st.text_area("Tasks 2", key='task32_53', height=100)
+        task33 = st.text_area("Tasks 3", key='task33_54', height=100)
 
     # Extracurricular Activities / Engagement Section
-    st.header("Extracurricular Activities")
-
     with st.expander("Extracurricular Activities", expanded=False):  # 'expanded=True' means the section will be expanded by default
         # Retrieve the volunteer work, certifications, languages, and interests from LinkedIn data if they exist
         volunteer_work_entries = linkedin_data.get('volunteer_work', [])  # Assuming it's a list of dictionaries
@@ -1047,13 +1016,11 @@ with tabs[3]:
         volunteer_work_combined = ', '.join(volunteer_work_titles[0:3])
         certifications_combined = ', '.join(certifications_titles[0:3])
 
-        extracurricular1 = st.text_input("Extrakurrikulare Aktivitäten", value=volunteer_work_combined, key="extracurricular_4_key")
-        additionaleducation1 = st.text_input("Zusätzliche Bildung", key="additional_education_4_key")  # No specific API data, so left for manual input
-        certificates1 = st.text_input("Zertifikate und Errungenschaften", value=certifications_combined, key="certificates_4_key")
+        extracurricular1 = st.text_input("Extracurricular Activities", value=volunteer_work_combined, key="extracurricular_4_key")
+        additionaleducation1 = st.text_input("Additional Education", key="additional_education_4_key")  # No specific API data, so left for manual input
+        certificates1 = st.text_input("Certificates und Awards", value=certifications_combined, key="certificates_4_key")
 
     # Skills & Interest Section
-    st.header("Skills & Interest")
-
     # Wrap the Skills & Interest section in an expander
     with st.expander("Skills & Interest", expanded=False):  # 'expanded=True' means the section will be expanded by default
         # Retrieve the computer skills entries from LinkedIn data if they exist
@@ -1064,12 +1031,12 @@ with tabs[3]:
         interests_combined = ', '.join(interests_entries[0:3])
         computer_skills_combined = ', '.join(computer_skills_entries[0:3])
 
-        languages1 = st.text_input("Sprachen", value=languages_combined, key="languages_4_key")
-        computer1 = st.text_input("Computerkenntnisse", value=computer_skills_combined, key="computer_skills_key_4")
-        interests1 = st.text_input("Interessen", value=interests_combined, key="interests_4_key")
+        languages1 = st.text_input("Languages", value=languages_combined, key="languages_4_key")
+        computer1 = st.text_input("Computer Skills", value=computer_skills_combined, key="computer_skills_key_4")
+        interests1 = st.text_input("Interests", value=interests_combined, key="interests_4_key")
 
     # Button zum Erstellen des CVs
-    if st.button("CV Erstellen", key="unique_key_223"):
+    if st.button("Generate CV", key="unique_key_223"):
         try:
             with open('template_finance.tex', 'r', encoding='utf-8') as file:
                 latex_template = file.read()
@@ -1180,10 +1147,10 @@ with tabs[4]:
         linkedin_data = retrieve_info(linkedin_profile_url) or {}
 
     # Personal Information Section
-    st.header("Persönliche Informationen")
+    st.header("Your CV, Your Story: Complete the Chapters")
 
     # Retrieve individual address components, defaulting to an empty string if not found
-    with st.expander("Persönliche Informationen", expanded=False):  # 'expanded=True' means the section will be expanded by default
+    with st.expander("Personal Information", expanded=False):  # 'expanded=True' means the section will be expanded by default
         city = linkedin_data.get('city', '')
         state = linkedin_data.get('state', '')
         country = linkedin_data.get('country', '')
@@ -1194,13 +1161,11 @@ with tabs[4]:
 
         # Streamlit text input fields
         name = st.text_input("Name", value=linkedin_data.get('full_name', ''), key='name_key_5')
-        address = st.text_input("Adresse", value=formatted_address, key='address_key_5')
-        phone = st.text_input("Telefonnummer", key='phone_key_5')
+        address = st.text_input("Address", value=formatted_address, key='address_key_5')
+        phone = st.text_input("Phone Number", key='phone_key_5')
         email = st.text_input("E-Mail", key='email_key_5')
 
     # Education Section
-    st.header("Education")
-
     # Assuming the first two education entries in LinkedIn data (if they exist) are to be used
     education_entries = linkedin_data.get('education', [{} for _ in range(2)])
 
@@ -1231,25 +1196,23 @@ with tabs[4]:
     timeus2 = f"{starts_at2} - {ends_at2}" if ends_at2 else starts_at2
 
     with st.expander("Education", expanded=False):  # 'expanded=True' means the section will be expanded by default
-        university1 = st.text_input("Universität/Schule 1", value=university1, key="unique_key_225")
-        locationus1 = st.text_input("Standort 1", value=locationus1, key="unique_key_226")
-        majorus1 = st.text_input("Studiengang 1", value=majorus1, key="unique_key_227")
-        timeus1 = st.text_input("Zeitraum 1", value=timeus1, key="unique_key_228")
-        courses1 = st.text_input("Kurse 1", key="unique_key_229")
+        university1 = st.text_input("University/School 1", value=university1, key="unique_key_225")
+        locationus1 = st.text_input("Location 1", value=locationus1, key="unique_key_226")
+        majorus1 = st.text_input("Study Program 1", value=majorus1, key="unique_key_227")
+        timeus1 = st.text_input("Time Frame 1", value=timeus1, key="unique_key_228")
+        courses1 = st.text_input("Courses 1", key="unique_key_229")
         gpa1 = st.text_input("GPA 1", value=gpa1, key="unique_key_230")
-        clubs1 = st.text_input("Clubs/Aktivitäten 1", key="unique_key_231")
+        clubs1 = st.text_input("Clubs/Activities 1", key="unique_key_231")
 
-        university2 = st.text_input("Universität/Schule 2", value=university2, key="unique_key_232")
-        locationus2 = st.text_input("Standort 2", value=locationus2, key="unique_key_233")
-        majorus2 = st.text_input("Studiengang 2", value=majorus2, key="unique_key_234")
-        timeus2 = st.text_input("Zeitraum 2", value=timeus2, key="unique_key_235")
-        courses2 = st.text_input("Kurse 2", key="unique_key_236")
+        university2 = st.text_input("University/School 2", value=university2, key="unique_key_232")
+        locationus2 = st.text_input("Location 2", value=locationus2, key="unique_key_233")
+        majorus2 = st.text_input("Study Program 2", value=majorus2, key="unique_key_234")
+        timeus2 = st.text_input("Time Frame 2", value=timeus2, key="unique_key_235")
+        courses2 = st.text_input("Courses 2", key="unique_key_236")
         gpa2 = st.text_input("GPA 2", value=gpa2, key="unique_key_237")
-        clubs2 = st.text_input("Clubs/Aktivitäten 2", key="unique_key_238")
+        clubs2 = st.text_input("Clubs/Activities 2", key="unique_key_238")
 
     # Professional Experience Section
-    st.header("Professional Experience")
-
     def format_date(date_dict):
         """Formats a date dictionary into DD.MM.YYYY format."""
         if date_dict:
@@ -1285,33 +1248,31 @@ with tabs[4]:
     timee3 = f"{starts_at3} - {ends_at3}" if ends_at3 else starts_at3
 
     with st.expander("Professional Experience", expanded=False):  # 'expanded=True' means the section will be expanded by default
-        experience1 = st.text_input("Erfahrung 1", value=experience1, key="unique_key_239")
-        locatione1 = st.text_input("Standort Erfahrung 1", value=locatione1, key="unique_key_240")
+        experience1 = st.text_input("Company 1", value=experience1, key="unique_key_239")
+        locatione1 = st.text_input("Location 1", value=locatione1, key="unique_key_240")
         position1 = st.text_input("Position 1", value=position1, key="unique_key_241")
-        timee1 = st.text_input("Zeitraum Erfahrung 1", value=timee1, key="unique_key_242")
-        task11 = st.text_area("Aufgaben 1", key='task11_55', height=100)
-        task12 = st.text_area("Aufgaben 2", key='task12_56', height=100)
-        task13 = st.text_area("Aufgaben 3", key='task13_57', height=100)
+        timee1 = st.text_input("Time Frame 1", value=timee1, key="unique_key_242")
+        task11 = st.text_area("Tasks 1", key='task11_55', height=100)
+        task12 = st.text_area("Tasks 2", key='task12_56', height=100)
+        task13 = st.text_area("Tasks 3", key='task13_57', height=100)
 
-        experience2 = st.text_input("Erfahrung 2", value=experience2, key="unique_key_243")
-        locatione2 = st.text_input("Standort Erfahrung 2", value=locatione2, key="unique_key_244")
+        experience2 = st.text_input("Company 2", value=experience2, key="unique_key_243")
+        locatione2 = st.text_input("Location 2", value=locatione2, key="unique_key_244")
         position2 = st.text_input("Position 2", value=position2, key="unique_key_245")
-        timee2 = st.text_input("Zeitraum Erfahrung 2", value=timee2, key="unique_key_255")
-        task21 = st.text_area("Aufgaben 1", key='task21_58', height=100)
-        task22 = st.text_area("Aufgaben 2", key='task22_59', height=100)
-        task23 = st.text_area("Aufgaben 3", key='task23_60', height=100)
+        timee2 = st.text_input("Time Frame 2", value=timee2, key="unique_key_255")
+        task21 = st.text_area("Tasks 1", key='task21_58', height=100)
+        task22 = st.text_area("Tasks 2", key='task22_59', height=100)
+        task23 = st.text_area("Tasks 3", key='task23_60', height=100)
 
-        experience3 = st.text_input("Erfahrung 3", value=experience3, key="unique_key_256")
-        locatione3 = st.text_input("Standort Erfahrung 3", value=locatione3, key="unique_key_257")
+        experience3 = st.text_input("Company 3", value=experience3, key="unique_key_256")
+        locatione3 = st.text_input("Location 3", value=locatione3, key="unique_key_257")
         position3 = st.text_input("Position 3", value=position3, key="unique_key_258")
-        timee3 = st.text_input("Zeitraum Erfahrung 3", value=timee3, key="unique_key_259")
-        task31 = st.text_area("Aufgaben 1", key='task31_61', height=100)
-        task32 = st.text_area("Aufgaben 2", key='task32_62', height=100)
-        task33 = st.text_area("Aufgaben 3", key='task33_63', height=100)
+        timee3 = st.text_input("Time Frame 3", value=timee3, key="unique_key_259")
+        task31 = st.text_area("Tasks 1", key='task31_61', height=100)
+        task32 = st.text_area("Tasks 2", key='task32_62', height=100)
+        task33 = st.text_area("Tasks 3", key='task33_63', height=100)
 
     # Extracurricular Activities / Engagement Section
-    st.header("Extracurricular Activities")
-
     with st.expander("Extracurricular Activities", expanded=False):  # 'expanded=True' means the section will be expanded by default
         # Retrieve the volunteer work, certifications, languages, and interests from LinkedIn data if they exist
         volunteer_work_entries = linkedin_data.get('volunteer_work', [])  # Assuming it's a list of dictionaries
@@ -1327,13 +1288,11 @@ with tabs[4]:
         volunteer_work_combined = ', '.join(volunteer_work_titles[0:3])
         certifications_combined = ', '.join(certifications_titles[0:3])
 
-        extracurricular1 = st.text_input("Extrakurrikulare Aktivitäten", value=volunteer_work_combined, key="extracurricular_5_key")
-        additionaleducation1 = st.text_input("Zusätzliche Bildung", key="additional_education_5_key")  # No specific API data, so left for manual input
-        certificates1 = st.text_input("Zertifikate und Errungenschaften", value=certifications_combined, key="certificates_5_key")
+        extracurricular1 = st.text_input("Extracurricular Activities", value=volunteer_work_combined, key="extracurricular_5_key")
+        additionaleducation1 = st.text_input("Additional Education", key="additional_education_5_key")  # No specific API data, so left for manual input
+        certificates1 = st.text_input("Certificates and Awards", value=certifications_combined, key="certificates_5_key")
 
     # Skills & Interest Section
-    st.header("Skills & Interest")
-
     # Wrap the Skills & Interest section in an expander
     with st.expander("Skills & Interest", expanded=False):  # 'expanded=True' means the section will be expanded by default
         # Retrieve the computer skills entries from LinkedIn data if they exist
@@ -1344,12 +1303,12 @@ with tabs[4]:
         interests_combined = ', '.join(interests_entries[0:3])
         computer_skills_combined = ', '.join(computer_skills_entries[0:3])
 
-        languages1 = st.text_input("Sprachen", value=languages_combined, key="languages_5_key")
-        computer1 = st.text_input("Computerkenntnisse", value=computer_skills_combined, key="computer_skills_key_5")
-        interests1 = st.text_input("Interessen", value=interests_combined, key="interests_5_key")
+        languages1 = st.text_input("Languages", value=languages_combined, key="languages_5_key")
+        computer1 = st.text_input("Computer Skills", value=computer_skills_combined, key="computer_skills_key_5")
+        interests1 = st.text_input("Interests", value=interests_combined, key="interests_5_key")
 
     # Button zum Erstellen des CVs
-    if st.button("CV Erstellen", key="unique_key_260"):
+    if st.button("Generate CV", key="unique_key_260"):
         try:
             with open('template_finance.tex', 'r', encoding='utf-8') as file:
                 latex_template = file.read()
@@ -1460,10 +1419,10 @@ with tabs[5]:
         linkedin_data = retrieve_info(linkedin_profile_url) or {}
 
     # Personal Information Section
-    st.header("Persönliche Informationen")
+    st.header("Your CV, Your Story: Complete the Chapters")
 
     # Retrieve individual address components, defaulting to an empty string if not found
-    with st.expander("Persönliche Informationen", expanded=False):  # 'expanded=True' means the section will be expanded by default
+    with st.expander("Personal Information", expanded=False):  # 'expanded=True' means the section will be expanded by default
         city = linkedin_data.get('city', '')
         state = linkedin_data.get('state', '')
         country = linkedin_data.get('country', '')
@@ -1474,14 +1433,12 @@ with tabs[5]:
 
         # Streamlit text input fields
         name = st.text_input("Name", value=linkedin_data.get('full_name', ''), key='name_key_6')
-        address = st.text_input("Adresse", value=formatted_address, key='address_key_6')
-        phone = st.text_input("Telefonnummer", key='phone_key_6')
+        address = st.text_input("Address", value=formatted_address, key='address_key_6')
+        phone = st.text_input("Phone Number", key='phone_key_6')
         email = st.text_input("E-Mail", key='email_key_6')
 
 
     # Education Section
-    st.header("Education")
-
     # Assuming the first two education entries in LinkedIn data (if they exist) are to be used
     education_entries = linkedin_data.get('education', [{} for _ in range(2)])
 
@@ -1512,25 +1469,23 @@ with tabs[5]:
     timeus2 = f"{starts_at2} - {ends_at2}" if ends_at2 else starts_at2
 
     with st.expander("Education", expanded=False):  # 'expanded=True' means the section will be expanded by default
-        university1 = st.text_input("Universität/Schule 1", value=university1, key="unique_key_261")
-        locationus1 = st.text_input("Standort 1", value=locationus1, key="unique_key_262")
-        majorus1 = st.text_input("Studiengang 1", value=majorus1, key="unique_key_263")
-        timeus1 = st.text_input("Zeitraum 1", value=timeus1, key="unique_key_264")
-        courses1 = st.text_input("Kurse 1", key="unique_key_265")
+        university1 = st.text_input("University/School 1", value=university1, key="unique_key_261")
+        locationus1 = st.text_input("Location 1", value=locationus1, key="unique_key_262")
+        majorus1 = st.text_input("Study Program 1", value=majorus1, key="unique_key_263")
+        timeus1 = st.text_input("Time Frame 1", value=timeus1, key="unique_key_264")
+        courses1 = st.text_input("Courses 1", key="unique_key_265")
         gpa1 = st.text_input("GPA 1", value=gpa1, key="unique_key_266")
-        clubs1 = st.text_input("Clubs/Aktivitäten 1", key="unique_key_267")
+        clubs1 = st.text_input("Clubs/Activities 1", key="unique_key_267")
 
-        university2 = st.text_input("Universität/Schule 2", value=university2, key="unique_key_268")
-        locationus2 = st.text_input("Standort 2", value=locationus2, key="unique_key_269")
-        majorus2 = st.text_input("Studiengang 2", value=majorus2, key="unique_key_270")
-        timeus2 = st.text_input("Zeitraum 2", value=timeus2, key="unique_key_271")
-        courses2 = st.text_input("Kurse 2", key="unique_key_272")
+        university2 = st.text_input("University/School 2", value=university2, key="unique_key_268")
+        locationus2 = st.text_input("Location 2", value=locationus2, key="unique_key_269")
+        majorus2 = st.text_input("Study Program 2", value=majorus2, key="unique_key_270")
+        timeus2 = st.text_input("Time Frame 2", value=timeus2, key="unique_key_271")
+        courses2 = st.text_input("Courses 2", key="unique_key_272")
         gpa2 = st.text_input("GPA 2", value=gpa2, key="unique_key_273")
-        clubs2 = st.text_input("Clubs/Aktivitäten 2", key="unique_key_274")
+        clubs2 = st.text_input("Clubs/Activities 2", key="unique_key_274")
 
     # Professional Experience Section
-    st.header("Professional Experience")
-
     def format_date(date_dict):
         """Formats a date dictionary into DD.MM.YYYY format."""
         if date_dict:
@@ -1566,33 +1521,31 @@ with tabs[5]:
     timee3 = f"{starts_at3} - {ends_at3}" if ends_at3 else starts_at3
 
     with st.expander("Professional Experience", expanded=False):  # 'expanded=True' means the section will be expanded by default
-        experience1 = st.text_input("Erfahrung 1", value=experience1, key="unique_key_275")
-        locatione1 = st.text_input("Standort Erfahrung 1", value=locatione1, key="unique_key_276")
+        experience1 = st.text_input("Company 1", value=experience1, key="unique_key_275")
+        locatione1 = st.text_input("Location 1", value=locatione1, key="unique_key_276")
         position1 = st.text_input("Position 1", value=position1, key="unique_key_277")
-        timee1 = st.text_input("Zeitraum Erfahrung 1", value=timee1, key="unique_key_278")
-        task11 = st.text_area("Aufgaben 1", key='task11_89', height=100)
-        task12 = st.text_area("Aufgaben 2", key='task12_90', height=100)
-        task13 = st.text_area("Aufgaben 3", key='task13_91', height=100)
+        timee1 = st.text_input("Time Frame 1", value=timee1, key="unique_key_278")
+        task11 = st.text_area("Tasks 1", key='task11_89', height=100)
+        task12 = st.text_area("Tasks 2", key='task12_90', height=100)
+        task13 = st.text_area("Tasks 3", key='task13_91', height=100)
 
-        experience2 = st.text_input("Erfahrung 2", value=experience2, key="unique_key_279")
-        locatione2 = st.text_input("Standort Erfahrung 2", value=locatione2, key="unique_key_280")
+        experience2 = st.text_input("Company 2", value=experience2, key="unique_key_279")
+        locatione2 = st.text_input("Location 2", value=locatione2, key="unique_key_280")
         position2 = st.text_input("Position 2", value=position2, key="unique_key_281")
-        timee2 = st.text_input("Zeitraum Erfahrung 2", value=timee2, key="unique_key_282")
-        task21 = st.text_area("Aufgaben 1", key='task21_92', height=100)
-        task22 = st.text_area("Aufgaben 2", key='task22_93', height=100)
-        task23 = st.text_area("Aufgaben 3", key='task23_94', height=100)
+        timee2 = st.text_input("Time Frame 2", value=timee2, key="unique_key_282")
+        task21 = st.text_area("Tasks 1", key='task21_92', height=100)
+        task22 = st.text_area("Tasks 2", key='task22_93', height=100)
+        task23 = st.text_area("Tasks 3", key='task23_94', height=100)
 
-        experience3 = st.text_input("Erfahrung 3", value=experience3, key="unique_key_283")
-        locatione3 = st.text_input("Standort Erfahrung 3", value=locatione3, key="unique_key_284")
+        experience3 = st.text_input("Company 3", value=experience3, key="unique_key_283")
+        locatione3 = st.text_input("Location 3", value=locatione3, key="unique_key_284")
         position3 = st.text_input("Position 3", value=position3, key="unique_key_285")
-        timee3 = st.text_input("Zeitraum Erfahrung 3", value=timee3, key="unique_key_286")
-        task31 = st.text_area("Aufgaben 1", key='task31_95', height=100)
-        task32 = st.text_area("Aufgaben 2", key='task32_96', height=100)
-        task33 = st.text_area("Aufgaben 3", key='task33_97', height=100)
+        timee3 = st.text_input("Time Frame 3", value=timee3, key="unique_key_286")
+        task31 = st.text_area("Tasks 1", key='task31_95', height=100)
+        task32 = st.text_area("Tasks 2", key='task32_96', height=100)
+        task33 = st.text_area("Tasks 3", key='task33_97', height=100)
 
     # Extracurricular Activities / Engagement Section
-    st.header("Extracurricular Activities")
-
     with st.expander("Extracurricular Activities", expanded=False):  # 'expanded=True' means the section will be expanded by default
         # Retrieve the volunteer work, certifications, languages, and interests from LinkedIn data if they exist
         volunteer_work_entries = linkedin_data.get('volunteer_work', [])  # Assuming it's a list of dictionaries
@@ -1608,13 +1561,11 @@ with tabs[5]:
         volunteer_work_combined = ', '.join(volunteer_work_titles[0:3])
         certifications_combined = ', '.join(certifications_titles[0:3])
 
-        extracurricular1 = st.text_input("Extrakurrikulare Aktivitäten", value=volunteer_work_combined, key="extracurricular_6_key")
-        additionaleducation1 = st.text_input("Zusätzliche Bildung", key="additional_education_6_key")  # No specific API data, so left for manual input
-        certificates1 = st.text_input("Zertifikate und Errungenschaften", value=certifications_combined, key="certificates_6_key")
+        extracurricular1 = st.text_input("Extracurricular Activities", value=volunteer_work_combined, key="extracurricular_6_key")
+        additionaleducation1 = st.text_input("Additional Education", key="additional_education_6_key")  # No specific API data, so left for manual input
+        certificates1 = st.text_input("Certificates and Awards", value=certifications_combined, key="certificates_6_key")
 
     # Skills & Interest Section
-    st.header("Skills & Interest")
-
     # Wrap the Skills & Interest section in an expander
     with st.expander("Skills & Interest", expanded=False):  # 'expanded=True' means the section will be expanded by default
         # Retrieve the computer skills entries from LinkedIn data if they exist
@@ -1625,12 +1576,12 @@ with tabs[5]:
         interests_combined = ', '.join(interests_entries[0:3])
         computer_skills_combined = ', '.join(computer_skills_entries[0:3])
 
-        languages1 = st.text_input("Sprachen", value=languages_combined, key="languages_6_key")
-        computer1 = st.text_input("Computerkenntnisse", value=computer_skills_combined, key="computer_skills_key_6")
-        interests1 = st.text_input("Interessen", value=interests_combined, key="interests_6_key")
+        languages1 = st.text_input("Languages", value=languages_combined, key="languages_6_key")
+        computer1 = st.text_input("Computer Skills", value=computer_skills_combined, key="computer_skills_key_6")
+        interests1 = st.text_input("Interests", value=interests_combined, key="interests_6_key")
 
     # Button zum Erstellen des CVs
-    if st.button("CV Erstellen", key="unique_key_287"):
+    if st.button("Generate CV", key="unique_key_287"):
         try:
             with open('template_finance.tex', 'r', encoding='utf-8') as file:
                 latex_template = file.read()
